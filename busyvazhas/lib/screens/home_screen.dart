@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
   void _startNotificationTimer() {
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 5), () {
       if (mounted) {
         _generateRandomNotification();
         _startNotificationTimer();
@@ -36,12 +36,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _generateRandomNotification() async {
     final platforms = ['Instagram', 'WhatsApp', 'Telegram'];
-    final senders = ['John', 'Alice', 'Mom', 'Boss', 'Team'];
+    final senders = ['Ayush','Emily Willys', 'Bennychan', 'Maman', 'Boss', 'Team'];
     final messages = [
-      'liked your photo',
-      'sent you a message',
-      'shared a post with you',
-      'mentioned you in a story'
+      'vaishanavinu pennu kittyyydaaa ',
+      'vaveee fd  kazhichoooo',
+      'Nammakk onn koodande🍻',
+      'Suganoo🫦',
+  
+      'Daa Matte video kittyooo'
     ];
 
     final random = DateTime.now().millisecondsSinceEpoch % 3;
@@ -86,6 +88,10 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('BusyVazhas'),
         actions: [
+          IconButton(onPressed: (){
+             Provider.of<NotificationProvider>(context, listen: false)
+        .clearNotifications();
+          }, icon:const Icon(Icons.cancel_outlined)),
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () => Navigator.pushNamed(context, '/customization'),

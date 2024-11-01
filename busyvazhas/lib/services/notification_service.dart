@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:busyvazhas/providers/notification_provider.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationService {
@@ -31,8 +28,7 @@ class NotificationService {
     _isSilentMode = value;
   }
 
-  Future<void> showNotification(
-      {required NotificationItem notification}) async {
+  Future<void> showNotification({required NotificationItem notification}) async {
     if (_isSilentMode) return;
     String? icon;
     if (notification.platform == "WhatsApp") {
@@ -44,8 +40,8 @@ class NotificationService {
     }
     AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
-      'busy_vazhas_channel',
-      'BusyVazhas Notifications',
+      notification.platform,
+      notification.platform,
       icon: icon,
       importance: Importance.high,
       priority: Priority.high,
@@ -56,7 +52,7 @@ class NotificationService {
         NotificationDetails(android: androidPlatformChannelSpecifics);
 
     await _notifications.show(
-      0,
+      DateTime.now().second,
       notification.platform,
       "${notification.sender} ${notification.message}",
       platformChannelSpecifics,

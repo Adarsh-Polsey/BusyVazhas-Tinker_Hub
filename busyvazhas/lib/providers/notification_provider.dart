@@ -1,3 +1,4 @@
+import 'package:busyvazhas/services/notification_service.dart';
 import 'package:flutter/material.dart';
 
 class NotificationItem {
@@ -20,17 +21,17 @@ class NotificationProvider extends ChangeNotifier {
   List<NotificationItem> _notifications = [];
   int _notificationCount = 0;
   bool _endlessMode = true;
-  
+
   // Platform toggles
   bool _instagramEnabled = true;
   bool _whatsAppEnabled = true;
   bool _telegramEnabled = true;
-  
+
   // Getters
   List<NotificationItem> get notifications => _notifications;
   int get notificationCount => _notificationCount;
   bool get endlessMode => _endlessMode;
-  
+
   bool get instagramEnabled => _instagramEnabled;
   bool get whatsAppEnabled => _whatsAppEnabled;
   bool get telegramEnabled => _telegramEnabled;
@@ -46,6 +47,8 @@ class NotificationProvider extends ChangeNotifier {
   void clearNotifications() {
     _notifications.clear();
     _notificationCount = 0;
+    NotificationService notifs = NotificationService();
+    notifs.clearNotifications();
     notifyListeners();
   }
 
@@ -84,7 +87,7 @@ class NotificationProvider extends ChangeNotifier {
 
     final random = DateTime.now().millisecondsSinceEpoch % 3;
     final platform = platforms[random];
-    
+
     // Respect platform toggles
     if ((platform == 'Instagram' && !_instagramEnabled) ||
         (platform == 'WhatsApp' && !_whatsAppEnabled) ||
@@ -92,22 +95,26 @@ class NotificationProvider extends ChangeNotifier {
       return generateRandomNotification(); // Recursive call to get an enabled platform
     }
 
-    final sender = senders[DateTime.now().millisecondsSinceEpoch % senders.length];
-    final message = messages[DateTime.now().millisecondsSinceEpoch % messages.length];
+    final sender =
+        senders[DateTime.now().millisecondsSinceEpoch % senders.length];
+    final message =
+        messages[DateTime.now().millisecondsSinceEpoch % messages.length];
 
     Icon icon;
     switch (platform) {
       case 'Instagram':
-        icon = const Icon(Icons.favorite,color: Colors.blueAccent);
+        icon = const Icon(Icons.favorite, color: Colors.blueAccent);
         break;
       case 'WhatsApp':
-          icon = const Icon(Icons.messenger_outline_rounded,color: Colors.greenAccent);
+        icon = const Icon(Icons.messenger_outline_rounded,
+            color: Colors.greenAccent);
         break;
       case 'Telegram':
-          icon = const Icon(Icons.send_outlined,color: Colors.lightBlue);
+        icon = const Icon(Icons.send_outlined, color: Colors.lightBlue);
         break;
       default:
-          icon = const Icon(Icons.notifications_outlined,color: Colors.redAccent);
+        icon =
+            const Icon(Icons.notifications_outlined, color: Colors.redAccent);
     }
 
     return NotificationItem(
