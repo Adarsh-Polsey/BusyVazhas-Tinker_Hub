@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 6), () {
       Navigator.pushReplacementNamed(context, '/home');
     });
   }
@@ -42,7 +42,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: AnimatedTextKit(
                   animatedTexts: [
                     TypewriterAnimatedText(
-                      'You think vazhas are busy?????\nhuhhh🚶',
+                      textAlign: TextAlign.center,
+                      'You think vazhas sucks?????\n Atleast, good at sucking ',
                       speed: const Duration(milliseconds: 100),
                     ),
                   ],

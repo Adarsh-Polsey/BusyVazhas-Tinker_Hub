@@ -4,7 +4,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../providers/notification_provider.dart';
 import '../providers/theme_provider.dart';
-import 'home_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -28,16 +27,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       isDarkMode = prefs.getBool('darkMode') ?? false;
-      silentMode = prefs.getBool('silentMode') ?? false;
-      showBadgeCount = prefs.getBool('showBadgeCount') ?? true;
     });
   }
 
   Future<void> _saveSettings() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('darkMode', isDarkMode);
-    await prefs.setBool('silentMode', silentMode);
-    await prefs.setBool('showBadgeCount', showBadgeCount);
   }
 
   @override
@@ -54,39 +49,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               children: [
                 SwitchListTile(
-                  title: const Text('Dark Mode'),
-                  subtitle: const Text('Enable dark theme'),
+                  title: const Text('Dark/Light Vibe'),
+                  subtitle: const Text('Iruttaakkam, athalle rasam'),
                   value: isDarkMode,
                   onChanged: (value) {
                     setState(() {
                       isDarkMode = value;
                       Provider.of<ThemeProvider>(context, listen: false)
                           .toggleTheme(value);
-                    });
-                    _saveSettings();
-                  },
-                ),
-                const Divider(),
-                SwitchListTile(
-                  title: const Text('Silent Mode'),
-                  subtitle: const Text('Mute notification sounds'),
-                  value: silentMode,
-                  onChanged: (value) {
-                    setState(() {
-                      silentMode = value;
-                    });
-                    _saveSettings();
-                  },
-                ),
-                const Divider(),
-                SwitchListTile(
-                  title: const Text('Show Badge Count'),
-                  subtitle:
-                      const Text('Display notification count on app icon'),
-                  value: showBadgeCount,
-                  onChanged: (value) {
-                    setState(() {
-                      showBadgeCount = value;
                     });
                     _saveSettings();
                   },
@@ -100,20 +70,35 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               children: [
                 ListTile(
+                  title: const Text('Customize'),
+                  subtitle: const Text('Customize cheyyam'),
+                  trailing: const Icon(Icons.clear_all),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/customization');
+                  },
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          Card(
+            margin: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              children: [
+                ListTile(
                   title: const Text('Clear All Notifications'),
-                  subtitle: const Text('Reset notification count and history'),
+                  subtitle: const Text('Ozhivakk'),
                   trailing: const Icon(Icons.clear_all),
                   onTap: () {
                     showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
                         title: const Text('Clear Notifications'),
-                        content: const Text(
-                            'Are you sure you want to clear all notifications?'),
+                        content: const Text('Suree??'),
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.pop(context),
-                            child: const Text('Cancel'),
+                            child: const Text('Nopee'),
                           ),
                           TextButton(
                             onPressed: () {
@@ -127,7 +112,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 ),
                               );
                             },
-                            child: const Text('Clear'),
+                            child: const Text('Yep'),
                           ),
                         ],
                       ),
@@ -144,19 +129,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 ListTile(
                   title: const Text('About BusyVazhas'),
-                  subtitle: const Text('Version 1.0.0'),
+                  subtitle: const Text('Busy vazhas nn paranjaa......'),
                   trailing: const Icon(Icons.info_outline),
                   onTap: () {
                     showAboutDialog(
                       context: context,
                       applicationName: 'BusyVazhas',
-                      applicationVersion: '1.0.0',
+                      applicationVersion:
+                          'anganonnullyaa, ellam anganokke thanne',
                       applicationIcon: const FlutterLogo(size: 50),
                       children: const [
                         Text('Look busy, stay vazha.'),
                         SizedBox(height: 8),
-                        Text(
-                            'A fun app to make yourself look busy with fake notifications.'),
+                        Text('Vellyaa sambhavann kanich kodkkaa'),
                       ],
                     );
                   },
