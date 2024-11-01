@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Lottie.asset(
-              'assets/animations/notification-bell.json',
+              'assets/animations/banana_car.json',
               width: 200,
               height: 200,
             ),
@@ -38,14 +38,16 @@ class _SplashScreenState extends State<SplashScreen> {
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
-              child: AnimatedTextKit(
-                animatedTexts: [
-                  TypewriterAnimatedText(
-                    'Setting up your impressive (fake) social life...',
-                    speed: const Duration(milliseconds: 100),
-                  ),
-                ],
-                totalRepeatCount: 1,
+              child: Center(
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      'You think vazhas are busy?????\nhuhhh🚶',
+                      speed: const Duration(milliseconds: 100),
+                    ),
+                  ],
+                  totalRepeatCount: 1,
+                ),
               ),
             ),
           ],
