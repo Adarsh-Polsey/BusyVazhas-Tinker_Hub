@@ -1,3 +1,7 @@
+import 'dart:developer';
+
+import 'package:busyvazhas/providers/notification_provider.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationService {
@@ -28,35 +32,26 @@ class NotificationService {
   }
 
   Future<void> showNotification({
-    required String title,
-    required String body,
-    String? payload,
+   required NotificationItem notification,required Icon icon
   }) async {
     if (_isSilentMode) return;
 
-    const androidDetails = AndroidNotificationDetails(
+    const androidPlatformChannelSpecifics = AndroidNotificationDetails(
       'busy_vazhas_channel',
-      'BusyVazhas Notifications',
+      'BusyVazhas Notifications',icon:icon ,
       importance: Importance.high,
       priority: Priority.high,
       enableVibration: true,
     );
 
-    const iosDetails = DarwinNotificationDetails(
-      presentAlert: true,
-      presentBadge: true,
-      presentSound: true,
-    );
-
-    const details =
-        NotificationDetails(android: androidDetails, iOS: iosDetails);
+    const platformChannelSpecifics =
+        NotificationDetails(android: androidPlatformChannelSpecifics);
 
     await _notifications.show(
-      DateTime.now().millisecondsSinceEpoch.toInt(),
-      title,
-      body,
-      details,
-      payload: payload,
+      0,notification.platform,
+      "${notification.sender} + ${notification.message}",
+      platformChannelSpecifics,
+      payload: "",
     );
   }
 

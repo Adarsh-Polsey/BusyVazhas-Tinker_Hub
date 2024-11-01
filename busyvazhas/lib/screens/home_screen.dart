@@ -1,7 +1,9 @@
+import 'dart:developer';
+
+import 'package:busyvazhas/services/notification_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-
 import '../providers/notification_provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,18 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    _initializeNotifications();
     _startNotificationTimer();
   }
 
-  Future<void> _initializeNotifications() async {
-    const androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
-    const iosSettings = DarwinInitializationSettings();
-    const initializationSettings =
-        InitializationSettings(android: androidSettings, iOS: iosSettings);
 
-    await flutterLocalNotificationsPlugin.initialize(initializationSettings);
-  }
 
   void _startNotificationTimer() {
     Future.delayed(const Duration(seconds: 3), () {
@@ -40,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  void _generateRandomNotification() {
+  void _generateRandomNotification() async {
     final platforms = ['Instagram', 'WhatsApp', 'Telegram'];
     final senders = ['John', 'Alice', 'Mom', 'Boss', 'Team'];
     final messages = [
@@ -52,23 +46,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
     final random = DateTime.now().millisecondsSinceEpoch % 3;
     final platform = platforms[random];
-    final sender = senders[DateTime.now().millisecondsSinceEpoch % senders.length];
+    final sender =
+        senders[DateTime.now().millisecondsSinceEpoch % senders.length];
     final message =
         messages[DateTime.now().millisecondsSinceEpoch % messages.length];
-
-    IconData icon;
+    log("random - $random && platform - $platform && sender - $sender && message - $message ");
+    Icon icon;
     switch (platform) {
       case 'Instagram':
-        icon = Icons.favorite;
+        icon = const Icon(Icons.favorite,color: Colors.blueAccent);
         break;
       case 'WhatsApp':
-        icon = Icons.chat_bubble;
+          icon = const Icon(Icons.messenger_outline_rounded,color: Colors.greenAccent);
         break;
       case 'Telegram':
-        icon = Icons.send;
+          icon = const Icon(Icons.send_outlined,color: Colors.lightBlue);
         break;
       default:
-        icon = Icons.notifications;
+          icon = const Icon(Icons.notifications_outlined,color: Colors.redAccent);
     }
 
     final notification = NotificationItem(
@@ -81,26 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
     Provider.of<NotificationProvider>(context, listen: false)
         .addNotification(notification);
-    _showNotification(notification);
-  }
-
-  Future<void> _showNotification(NotificationItem notification) async {
-    const androidDetails = AndroidNotificationDetails(
-      'busy_vazhas_channel',
-      'BusyVazhas Notifications',
-      importance: Importance.high,
-      priority: Priority.high,
-    );
-    const iosDetails = DarwinNotificationDetails();
-    const details =
-        NotificationDetails(android: androidDetails, iOS: iosDetails);
-
-    await flutterLocalNotificationsPlugin.show(
-      DateTime.now().millisecondsSinceEpoch.toInt(),
-      notification.platform,
-      '${notification.sender} ${notification.message}',
-      details,
-    );
+    await NotificationService().showNotification(
+        body: "hey there", title: "Hey there", payload: "heyyy");
   }
 
   @override
@@ -146,12 +123,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ListView.builder(
                   itemCount: notificationProvider.notifications.length,
                   itemBuilder: (context, index) {
-                    final notification = notificationProvider.notifications[index];
+                    final notification =
+                        notificationProvider.notifications[index];
                     return ListTile(
-                      leading: Icon(
-                        notification.icon,
-                        color: Theme.of(context).primaryColor,
-                      ),
+                      leading: notification.icon,
                       title: Text(
                         '${notification.sender} ${notification.message}',
                         style: const TextStyle(fontWeight: FontWeight.bold),

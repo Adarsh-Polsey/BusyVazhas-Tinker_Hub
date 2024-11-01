@@ -60,7 +60,6 @@ class MyApp extends StatelessWidget {
           ),
           initialRoute: '/',
           onGenerateRoute: (settings) {
-            // Add transition animations for routes
             Widget page;
             switch (settings.name) {
               case '/':
@@ -141,7 +140,6 @@ class CustomScrollBehavior extends ScrollBehavior {
   }
 }
 
-// Error widget for production
 class CustomErrorWidget extends StatelessWidget {
   final FlutterErrorDetails errorDetails;
 

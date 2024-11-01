@@ -5,7 +5,7 @@ class NotificationItem {
   final String sender;
   final String message;
   final DateTime timestamp;
-  final IconData icon;
+  final Icon icon;
 
   NotificationItem({
     required this.platform,
@@ -95,19 +95,19 @@ class NotificationProvider extends ChangeNotifier {
     final sender = senders[DateTime.now().millisecondsSinceEpoch % senders.length];
     final message = messages[DateTime.now().millisecondsSinceEpoch % messages.length];
 
-    IconData icon;
+    Icon icon;
     switch (platform) {
       case 'Instagram':
-        icon = Icons.favorite;
+        icon = const Icon(Icons.favorite,color: Colors.blueAccent);
         break;
       case 'WhatsApp':
-        icon = Icons.chat_bubble;
+          icon = const Icon(Icons.messenger_outline_rounded,color: Colors.greenAccent);
         break;
       case 'Telegram':
-        icon = Icons.send;
+          icon = const Icon(Icons.send_outlined,color: Colors.lightBlue);
         break;
       default:
-        icon = Icons.notifications;
+          icon = const Icon(Icons.notifications_outlined,color: Colors.redAccent);
     }
 
     return NotificationItem(
