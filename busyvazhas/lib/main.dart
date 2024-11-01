@@ -8,9 +8,12 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 // Screens
 import 'screens/splash_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/customization_screen.dart';
+import 'screens/settings_screen.dart';
 
 // Providers
 import 'providers/theme_provider.dart';
+import 'providers/notification_provider.dart';
 import 'services/notification_service.dart';
 
 void main() async {
@@ -66,12 +69,12 @@ class MyApp extends StatelessWidget {
               case '/home':
                 page = const HomeScreen();
                 break;
-              // case '/customization':
-              //   page = const CustomizationScreen();
-              //   break;
-              // case '/settings':
-              //   page = const SettingsScreen();
-              //   break;
+              case '/customization':
+                page = const CustomizationScreen();
+                break;
+              case '/settings':
+                page = const SettingsScreen();
+                break;
               default:
                 page = const SplashScreen();
             }

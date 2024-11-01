@@ -26,7 +26,6 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Add a loading animation
             Lottie.asset(
               'assets/animations/notification-bell.json',
               width: 200,

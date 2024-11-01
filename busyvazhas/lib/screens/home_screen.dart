@@ -2,42 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-class NotificationProvider extends ChangeNotifier {
-  int _notificationCount = 0;
-  List<NotificationItem> _notifications = [];
-  bool _endlessMode = false;
-
-  int get notificationCount => _notificationCount;
-  List<NotificationItem> get notifications => _notifications;
-  bool get endlessMode => _endlessMode;
-
-  void addNotification(NotificationItem notification) {
-    _notifications.insert(0, notification);
-    _notificationCount++;
-    notifyListeners();
-  }
-
-  void toggleEndlessMode(bool value) {
-    _endlessMode = value;
-    notifyListeners();
-  }
-}
-
-class NotificationItem {
-  final String platform;
-  final String sender;
-  final String message;
-  final DateTime timestamp;
-  final IconData icon;
-
-  NotificationItem({
-    required this.platform,
-    required this.sender,
-    required this.message,
-    required this.timestamp,
-    required this.icon,
-  });
-}
+import '../providers/notification_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
