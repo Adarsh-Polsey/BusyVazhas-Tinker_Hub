@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Provider.of<NotificationProvider>(context, listen: false)
         .addNotification(notification);
     await NotificationService().showNotification(
-        body: "hey there", title: "Hey there", payload: "heyyy");
+       notification: notification);
   }
 
   @override

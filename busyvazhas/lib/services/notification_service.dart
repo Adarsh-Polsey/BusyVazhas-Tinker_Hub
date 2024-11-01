@@ -31,25 +31,34 @@ class NotificationService {
     _isSilentMode = value;
   }
 
-  Future<void> showNotification({
-   required NotificationItem notification,required Icon icon
-  }) async {
+  Future<void> showNotification(
+      {required NotificationItem notification}) async {
     if (_isSilentMode) return;
-
-    const androidPlatformChannelSpecifics = AndroidNotificationDetails(
+    String? icon;
+    if (notification.platform == "WhatsApp") {
+      icon = 'wh';
+    } else if (notification.platform == "Instagram") {
+      icon = 'in';
+    } else if (notification.platform == "Telegram") {
+      icon = 'te';
+    }
+    AndroidNotificationDetails androidPlatformChannelSpecifics =
+        AndroidNotificationDetails(
       'busy_vazhas_channel',
-      'BusyVazhas Notifications',icon:icon ,
+      'BusyVazhas Notifications',
+      icon: icon,
       importance: Importance.high,
       priority: Priority.high,
       enableVibration: true,
     );
 
-    const platformChannelSpecifics =
+    NotificationDetails platformChannelSpecifics =
         NotificationDetails(android: androidPlatformChannelSpecifics);
 
     await _notifications.show(
-      0,notification.platform,
-      "${notification.sender} + ${notification.message}",
+      0,
+      notification.platform,
+      "${notification.sender} ${notification.message}",
       platformChannelSpecifics,
       payload: "",
     );
