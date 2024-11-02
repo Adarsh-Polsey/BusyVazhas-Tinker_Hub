@@ -68,9 +68,6 @@ class MyApp extends StatelessWidget {
               case '/home':
                 page = const HomeScreen();
                 break;
-              // case '/customization':
-              //   page = const CustomizationScreen();
-                break;
               case '/settings':
                 page = const SettingsScreen();
                 break;
