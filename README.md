@@ -48,7 +48,7 @@
 
 ### Screenshots
 1. **Main Screen**  
-   ![Splash Screen](./demo/splash.jpg)  
+   ![Splash Screen](busyvazhas/demo/splash.jpg)  
    _Where users embark on a journey to look busy.
 
 2. **Home Screen**  
