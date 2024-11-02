@@ -49,7 +49,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               children: [
                 SwitchListTile(
-                  title: const Text('Dark/Light Vibe'),
+                  title: const Text('Dark Vibe'),
                   subtitle: const Text('Iruttaakkam, athalle rasam'),
                   value: isDarkMode,
                   onChanged: (value) {
@@ -65,21 +65,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
           const SizedBox(height: 16),
-          Card(
-            margin: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              children: [
-                ListTile(
-                  title: const Text('Customize'),
-                  subtitle: const Text('Customize cheyyam'),
-                  trailing: const Icon(Icons.clear_all),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/customization');
-                  },
-                ),
-              ],
-            ),
-          ),
+          // Card(
+          //   margin: const EdgeInsets.symmetric(horizontal: 16),
+          //   child: Column(
+          //     children: [
+          //       ListTile(
+          //         title: const Text('Customize'),
+          //         subtitle: const Text('Customize cheyyam'),
+          //         trailing: const Icon(Icons.clear_all),
+          //         onTap: () {
+          //           Navigator.pushNamed(context, '/customization');
+          //         },
+          //       ),
+          //     ],
+          //   ),
+          // ),
           const SizedBox(height: 16),
           Card(
             margin: const EdgeInsets.symmetric(horizontal: 16),
