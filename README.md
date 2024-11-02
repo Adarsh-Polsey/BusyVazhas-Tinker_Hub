@@ -68,12 +68,12 @@
 
 ## Project Demo
 
-- **Video**: //Video Demo link 
-
+- **Video**: ![Project demo video](busyvazhas/demo/demo.mp4)
+  
 - **Additional Demos**:
-   - *“Dark mode”*
-   - *“Clear notifications”*
-   - *“Start/Stop notifications”*
+  - *“Dark mode”: Perfect for when you need to look like you're plotting world domination without the glare.”*
+  - *“Clear notifications”: Because sometimes you just need to make room for more important nonsense.”*
+  - *“Start/Stop notifications”: For those moments when the fake busy signals go into overdrive—hit pause before someone catches on!”*
 
 ---
 
