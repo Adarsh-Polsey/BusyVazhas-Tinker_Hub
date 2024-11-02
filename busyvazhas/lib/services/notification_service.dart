@@ -1,5 +1,6 @@
 import 'package:busyvazhas/providers/notification_provider.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class NotificationService {
   static final NotificationService _instance = NotificationService._internal();
@@ -20,7 +21,9 @@ class NotificationService {
     );
     const initializationSettings =
         InitializationSettings(android: androidSettings, iOS: iosSettings);
-
+    if (!(await Permission.notification.status.isGranted)) {
+      await Permission.notification.request();
+    }
     await _notifications.initialize(initializationSettings);
   }
 
@@ -28,7 +31,8 @@ class NotificationService {
     _isSilentMode = value;
   }
 
-  Future<void> showNotification({required NotificationItem notification}) async {
+  Future<void> showNotification(
+      {required NotificationItem notification}) async {
     if (_isSilentMode) return;
     String? icon;
     if (notification.platform == "WhatsApp") {

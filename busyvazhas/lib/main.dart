@@ -8,7 +8,6 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 // Screens
 import 'screens/splash_screen.dart';
 import 'screens/home_screen.dart';
-import 'screens/customization_screen.dart';
 import 'screens/settings_screen.dart';
 
 // Providers

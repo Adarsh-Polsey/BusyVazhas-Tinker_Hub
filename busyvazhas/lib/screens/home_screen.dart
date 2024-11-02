@@ -36,19 +36,49 @@ class _HomeScreenState extends State<HomeScreen> {
   void _generateRandomNotification() async {
     final platforms = ['Instagram', 'WhatsApp', 'Telegram'];
     final senders = [
-      'Ayush',
-      'Emily Willys',
-      'Bennychan',
-      'Maman',
-      'Boss',
-      'Team'
+      'Blart Fizzlebottom',
+      'Doodle McSquiggle',
+      'Gherkin von Pickleson',
+      'Squeezy Cheese McGee',
+      'Soggy Wafflestack',
+      'Dorfus McSnortface',
+      'Sprinkle McGiggles',
+      'Sir Poopsalot 💩',
+      'Tootsie Noodlebum',
+      'Wanda Wibblewobble',
+      'Crumble von Dinglehopper',
+      'Booger McSniff',
+      'Flapjack O’Hooligan',
+      'Mumble Bumblesnuff',
+      'Flick Wibberly-Wobberly',
+      'Twinkle Bumfuzzle',
+      'Clodhopper von Snoots',
+      'Chonkus McFuzz',
+      'Blinky Winklebottom',
+      'Zorp Thundertush'
     ];
+
     final messages = [
-      'vaishanavinu pennu kittyyydaaa ',
-      'vaveee fd  kazhichoooo',
-      'Nammakk onn koodande🍻',
-      'Suganoo🫦',
-      'Daa Matte video kittyooo'
+      'Bro, aliens 👽 took your socks 🧦 again…',
+      'Dude, remember that "one" embarrassing thing you did? Yeah, we still laugh about it 😂',
+      'Oops! Sent you a whole pizza 🍕 by mistake… guess you gotta eat it all! 😜',
+      'You up for world domination 🌎 or nah?',
+      'I accidentally told your pet 🐶 you’re a hooman... sorry! 😬',
+      'Plot twist: You’re actually in a reality TV show 📺😳',
+      'Tried to call 📞, but I heard you’re "busy" pretending to work 💼',
+      'Today’s horoscope 🪐: Don’t trust your alarm clock ⏰',
+      'Bruh, I know what you did last summer 🌞👀',
+      'Best friend tip #348: Never leave me alone with your fridge 🥶🍕',
+      'Just found out the weekend 🛌 is canceled… sorry! 😅',
+      'Breaking news 📰: Your pet just made a social media account without you! 🐾',
+      'Your fridge told me about the midnight snacks 🍫👀',
+      'Hey, just a reminder to water your fake plants 🪴😂',
+      'Your WiFi password is still "password," isn’t it? 🤔🔒',
+      'New conspiracy theory 🤫: You’re actually a morning person 🌅',
+      'Your coffee ☕ misses you, just saying ☹️',
+      'When are you gonna start that workout plan 🏋️ you keep talking about? 👀',
+      'Your "5-minute break" ⏳ has officially ended... 3 hours ago 🤷‍♀️',
+      'Reminder: Avoid making eye contact 👁️👁️ with responsibilities today 😂'
     ];
 
     final random = DateTime.now().millisecondsSinceEpoch % 3;
