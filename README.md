@@ -59,12 +59,6 @@
    ![Settings Screen](busyvazhas/demo/settings.jpg)  
    _Adjust your “busy” frequency—everything from “Barely Interested” to “CEO of the Universe.”_
 
-### Diagrams
-1. **Workflow/Architecture Diagram**  
-   ![Workflow](busyvazhas/demo/WorkflowDiagram.png)  
-   _You set it, and we spam it. It’s a simple flow: pick how busy you want to appear, and we’ll handle the rest._
-
----
 
 ## Project Demo
 
