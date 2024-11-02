@@ -52,16 +52,16 @@
    _Where users embark on a journey to look busy.
 
 2. **Home Screen**  
-   ![Home Screen](./demo/home.jpg)  
+   ![Home Screen](busyvazhas/demo/home.jpg)  
    Features include choosing notification types!”_
 
 3. **Settings Screen**  
-   ![Settings Screen](./demo/settings.jpg)  
+   ![Settings Screen](busyvazhas/demo/settings.jpg)  
    _Adjust your “busy” frequency—everything from “Barely Interested” to “CEO of the Universe.”_
 
 ### Diagrams
 1. **Workflow/Architecture Diagram**  
-   ![Workflow](./demo/WorkflowDiagram.png)  
+   ![Workflow](busyvazhas/demo/WorkflowDiagram.png)  
    _You set it, and we spam it. It’s a simple flow: pick how busy you want to appear, and we’ll handle the rest._
 
 ---
