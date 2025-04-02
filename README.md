@@ -3,9 +3,9 @@
 ### Basic Details
 - **Team Name**: Vazha
 - **Team Members**:
-  - **Team Lead**: Adarsh Polsey - St. Joseph’s College, Devagiri (Master of Being “Busy”)
-  - **Member 2**: Ayush Jose - St. Joseph’s College, Devagiri (Notification Wizard)
-  - **Member 3**: Ashin Sabu - St. Joseph’s College, Devagiri (Chief of Randomness)
+  - Adarsh Polsey - St. Joseph’s College, Devagiri (Master of Being “Busy”)
+  - Ayush Jose - St. Joseph’s College, Devagiri (Notification Wizard)
+  - Ashin Sabu - St. Joseph’s College, Devagiri (Chief of Randomness)
 
 ### Project Description
 - **BusyVazhas** is a groundbreaking app that generates utterly pointless notifications to help you look like the busiest person alive. Need an excuse to avoid a meeting? Done. Want to look important while doing absolutely nothing? We got you! With BusyVazhas, no one will ever suspect you’re just staring blankly into space.
